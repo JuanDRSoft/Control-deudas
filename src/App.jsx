@@ -25,6 +25,8 @@ function App() {
     setPending(suma);
   }, [gastos]);
 
+  //
+
   return (
     <div>
       <Header setGastos={setGastos} pending={pending} />
