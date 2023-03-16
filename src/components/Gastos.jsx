@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  LeadingActions,
   SwipeableList,
   SwipeableListItem,
   SwipeAction,
@@ -11,6 +12,12 @@ import formatearTotal from "../helpers/formatearTotal";
 
 const PreviewGastos = ({ gasto, eliminarGasto }) => {
   const { title, price, id, endDate } = gasto;
+
+  const leadingActions = () => (
+    <LeadingActions>
+      <SwipeAction></SwipeAction>
+    </LeadingActions>
+  );
 
   const trailingActions = () => (
     <div className="w-full h-full mt-3">
@@ -28,7 +35,10 @@ const PreviewGastos = ({ gasto, eliminarGasto }) => {
 
   return (
     <SwipeableList>
-      <SwipeableListItem trailingActions={trailingActions()}>
+      <SwipeableListItem
+        leadingActions={leadingActions()}
+        trailingActions={trailingActions()}
+      >
         <div className="p-5 bg-white mt-3 flex items-center justify-between rounded-lg shadow-lg w-full">
           <div>
             <p className="font-bold text-lg">{title}</p>
