@@ -20,17 +20,11 @@ const PreviewGastos = ({ gasto, eliminarGasto }) => {
   );
 
   const trailingActions = () => (
-    <div className="w-full h-full mt-3">
-      <div className="bg-pink-600 w-full h-full flex items-center">
-        <TrailingActions>
-          <SwipeAction destructive={true} onClick={() => eliminarGasto(id)}>
-            <p className="text-center text-white font-bold uppercase -mt-3">
-              Eliminar
-            </p>
-          </SwipeAction>
-        </TrailingActions>
-      </div>
-    </div>
+    <TrailingActions>
+      <SwipeAction destructive={true} onClick={() => eliminarGasto(id)}>
+        Eliminar
+      </SwipeAction>
+    </TrailingActions>
   );
 
   return (
