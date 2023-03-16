@@ -1,5 +1,8 @@
 export const formatearFecha = (fecha) => {
-  const fechaNueva = new Date(fecha);
+  const date = new Date(fecha);
+  const dia = date.getDate() + 1;
+  const mes = date.getMonth() + 1;
+  const año = date.getFullYear();
 
-  return fechaNueva.toLocaleDateString("es-ES");
+  return `${dia < 10 ? "0" + dia : dia}-${mes < 10 ? "0" + mes : mes}-${año}`;
 };

@@ -14,31 +14,26 @@ import formatearTotal from "../helpers/formatearTotal";
 const PreviewGastos = ({ gasto, eliminarGasto }) => {
   const { title, price, id, endDate } = gasto;
 
-  const leadingActions = () => (
-    <LeadingActions>
-      <SwipeAction></SwipeAction>
-    </LeadingActions>
-  );
-
   const trailingActions = () => (
-    <TrailingActions>
-      <SwipeAction destructive={true} onClick={() => eliminarGasto(id)}>
-        Eliminar
-      </SwipeAction>
-    </TrailingActions>
+    <div className="w-full">
+      <div className="bg-pink-600 mt-3 h-full flex items-center">
+        <TrailingActions>
+          <SwipeAction destructive={true} onClick={() => eliminarGasto(id)}>
+            <p className="text-center -mt-3 font-bold text-white">Eliminar</p>
+          </SwipeAction>
+        </TrailingActions>
+      </div>
+    </div>
   );
 
   return (
     <SwipeableList>
-      <SwipeableListItem
-        leadingActions={leadingActions()}
-        trailingActions={trailingActions()}
-      >
+      <SwipeableListItem trailingActions={trailingActions()}>
         <div className="p-5 bg-white mt-3 flex items-center justify-between rounded-lg shadow-lg w-full">
           <div>
             <p className="font-bold text-lg">{title}</p>
             <p className="font-bold">
-              Creado:{" "}
+              Plazo:{" "}
               <span className="font-semibold ml-1">
                 {formatearFecha(endDate)}
               </span>
