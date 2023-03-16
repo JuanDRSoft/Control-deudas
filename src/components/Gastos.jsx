@@ -5,7 +5,7 @@ import React from "react";
 //   SwipeAction,
 //   TrailingActions,
 // } from "react-swipeable-list";
-import "react-swipeable-list/dist/styles.css";
+// import "react-swipeable-list/dist/styles.css";
 import { formatearFecha } from "../helpers/formatearFecha";
 import formatearTotal from "../helpers/formatearTotal";
 
