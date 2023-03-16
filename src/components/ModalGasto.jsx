@@ -7,16 +7,19 @@ const ModalGasto = ({ modal, openModal, gastos, setGastos }) => {
   const [price, setPrice] = useState();
   const [endDate, setEndDate] = useState("");
 
-  useEffect(() => {
-    localStorage.setItem("Gastos", JSON.stringify(gastos) ?? []);
-  }, [gastos]);
-
   const submit = () => {
     if ([title, price, endDate].includes("")) {
       return;
     }
 
-    const data = { id: generarId(), title, price, date: Date.now(), endDate };
+    const data = {
+      id: generarId(),
+      title,
+      price,
+      date: Date.now(),
+      endDate,
+      status: "PENDING",
+    };
     setGastos([...gastos, data]);
     openModal();
     setTitle("");

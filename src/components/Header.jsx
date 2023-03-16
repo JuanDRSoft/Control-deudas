@@ -17,6 +17,11 @@ const Header = ({ setGastos, pending }) => {
           <span className="font-semibold">{formatearTotal(pending)}</span>
         </p>
 
+        <p className="mt-5 font-bold text-lg">
+          Pago Realizado:{" "}
+          <span className="font-semibold">{formatearTotal(0)}</span>
+        </p>
+
         <button
           className="mt-5 w-full bg-pink-600 text-white rounded-lg p-2 font-bold"
           onClick={resetApp}
