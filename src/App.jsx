@@ -11,6 +11,8 @@ function App() {
       : []
   );
   const [pending, setPending] = useState(0);
+  const [ready, setReady] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const openModal = () => {
     setModal(!modal);
@@ -21,19 +23,32 @@ function App() {
   }, [gastos]);
 
   useEffect(() => {
-    let suma = 0;
+    let sumaPending = 0;
+    let sumaReady = 0;
+
     for (let i = 0; i < gastos.length; i++) {
-      suma += Number(gastos[i].price);
+      if (gastos[i].status === "PENDING") {
+        sumaPending += Number(gastos[i].price);
+      } else if (gastos[i].status === "PAGO") {
+        sumaReady += Number(gastos[i].price);
+      }
     }
 
-    setPending(suma);
+    setPending(sumaPending);
+    setReady(sumaReady);
+    setTotal(sumaPending + sumaReady);
   }, [gastos]);
 
   //
 
   return (
     <div>
-      <Header setGastos={setGastos} pending={pending} />
+      <Header
+        setGastos={setGastos}
+        pending={pending}
+        ready={ready}
+        total={total}
+      />
 
       <Gastos gastos={gastos} setGastos={setGastos} />
 
